@@ -202,7 +202,7 @@
         </div>
     </footer>
 
-    <!-- Dynamic YouTube latest video -->
+    <!-- Dynamic YouTube latest video (skips Shorts) -->
     <script>
     (function() {
         const CHANNEL_ID = 'UCzycAtIVnSfe0nv2hnc95RA';
@@ -214,12 +214,51 @@
         }
 
         function embedChannelPlaylist() {
-            // Uploads playlist = channel ID with UC replaced by UU
             var uploadsId = 'UU' + CHANNEL_ID.substring(2);
             container.innerHTML = '<iframe src="https://www.youtube.com/embed/videoseries?list=' + uploadsId + '" title="Na vlastní triko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
         }
 
-        // Try multiple CORS proxies to fetch RSS and get latest video ID
+        // Check if a video is a Short using oEmbed (Shorts have height > width)
+        function isNotShort(videoId) {
+            return fetch('https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + videoId + '&format=json', { signal: AbortSignal.timeout(4000) })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    // Regular videos: width > height (e.g. 480x270)
+                    // Shorts: height > width (e.g. 270x480)
+                    return data.width >= data.height;
+                })
+                .catch(function() {
+                    // If oEmbed fails, assume it's not a Short
+                    return true;
+                });
+        }
+
+        // Find first non-Short video from a list of IDs
+        function findFirstRegularVideo(videoIds, index) {
+            if (index >= videoIds.length) {
+                embedChannelPlaylist();
+                return;
+            }
+            isNotShort(videoIds[index]).then(function(isRegular) {
+                if (isRegular) {
+                    embedVideo(videoIds[index]);
+                } else {
+                    findFirstRegularVideo(videoIds, index + 1);
+                }
+            });
+        }
+
+        // Extract all video IDs from RSS XML
+        function extractVideoIds(xml) {
+            var ids = [];
+            var regex = /<yt:videoId>([^<]+)<\/yt:videoId>/g;
+            var match;
+            while ((match = regex.exec(xml)) !== null) {
+                ids.push(match[1]);
+            }
+            return ids;
+        }
+
         var proxies = [
             'https://api.allorigins.win/raw?url=' + encodeURIComponent(RSS_URL),
             'https://corsproxy.io/?' + encodeURIComponent(RSS_URL),
@@ -228,18 +267,17 @@
 
         function tryProxy(index) {
             if (index >= proxies.length) {
-                // All proxies failed – use uploads playlist embed (always works)
                 embedChannelPlaylist();
                 return;
             }
             fetch(proxies[index], { signal: AbortSignal.timeout(5000) })
                 .then(function(res) { return res.text(); })
                 .then(function(xml) {
-                    var match = xml.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
-                    if (match && match[1]) {
-                        embedVideo(match[1]);
+                    var videoIds = extractVideoIds(xml);
+                    if (videoIds.length > 0) {
+                        findFirstRegularVideo(videoIds, 0);
                     } else {
-                        throw new Error('No video ID');
+                        throw new Error('No video IDs found');
                     }
                 })
                 .catch(function() {

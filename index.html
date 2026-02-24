@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Na vlastní triko – Podcast o podnikání</title>
-    <meta name="description" content="Podcast Na vlastní triko – inspirace a praktické rady pro všechny, kdo chtějí začít podnikat. Nové epizody každý týden.">
+    <title>Na vlastní triko – Podcast o podnikavosti | Vanda Seidelová & Dan Trzil</title>
+    <meta name="description" content="Na vlastní triko – podcast s praktickými tipy pro úspěch v práci, projektech i každodenních rozhodnutích. Nové epizody každý týden. Vanda Seidelová & Dan Trzil.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +16,19 @@
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="container">
-            <div class="hero-badge">🎙️ Podcast o podnikání</div>
-            <h1>Na vlastní <span class="highlight">triko</span></h1>
-            <p class="hero-subtitle">Free podcast pro každého, kdo chce začít podnikat.<br>Každý týden nová epizoda plná inspirace a praktických rad.</p>
-            <div class="hero-cta">
-                <a href="https://skool.com/na-vlastni-triko" class="btn btn-primary" target="_blank" rel="noopener">Získej plný přístup na Skool</a>
-                <a href="#platformy" class="btn btn-secondary">Poslouchej zdarma ↓</a>
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <div class="hero-badge">🎙️ Podcast o podnikavosti</div>
+                    <h1>Na vlastní <span class="highlight">triko</span></h1>
+                    <p class="hero-subtitle">Malé, praktické tipy pro úspěch v práci, projektech i každodenních rozhodnutích. Podcast od Vandy Seidelové a Dana Trzila.</p>
+                    <div class="hero-cta">
+                        <a href="https://www.skool.com/na-vlastni-triko" class="btn btn-primary" target="_blank" rel="noopener">Získej plný přístup na Skool</a>
+                        <a href="#platformy" class="btn btn-secondary">Poslouchej zdarma ↓</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="cover.jpg" alt="Na vlastní triko – podcast cover art" width="400" height="400">
+                </div>
             </div>
         </div>
     </section>
@@ -32,7 +39,7 @@
             <div class="about-grid">
                 <div class="about-text">
                     <h2>Pro koho je podcast?</h2>
-                    <p>Ať ti je 20 nebo 50 – pokud přemýšlíš o vlastním podnikání, nebo jsi na úplném začátku, tenhle podcast je pro tebe. Žádná teorie z učebnic. Reálné příběhy, praktické tipy a motivace, která tě nakopne.</p>
+                    <p>Ať ti je 20 nebo 50 – pokud přemýšlíš o tom, jak vzít věci do vlastních rukou, tenhle podcast je pro tebe. Podnikavost není jen o založení firmy. Je to o přístupu k životu – o odvaze dělat věci jinak a posouvat se kupředu po malých krocích.</p>
                     <div class="stats">
                         <div class="stat">
                             <span class="stat-number">Každý týden</span>
@@ -44,7 +51,7 @@
                         </div>
                         <div class="stat">
                             <span class="stat-number">100%</span>
-                            <span class="stat-label">praktické rady</span>
+                            <span class="stat-label">praktické tipy</span>
                         </div>
                     </div>
                 </div>
@@ -52,8 +59,8 @@
                     <div class="podcast-card">
                         <div class="podcast-card-icon">🎧</div>
                         <div class="podcast-card-text">
-                            <strong>Na vlastní triko</strong>
-                            <span>Podnikání bez filtrů</span>
+                            <strong>Vanda & Dan</strong>
+                            <span>Podnikavost bez filtrů</span>
                         </div>
                     </div>
                 </div>
@@ -66,17 +73,10 @@
         <div class="container">
             <h2>Podívej se na nejnovější epizodu</h2>
             <p class="section-subtitle">Sleduj nás na YouTube – nové díly každý týden</p>
-            <div class="youtube-embed">
-                <iframe
-                    src="https://www.youtube.com/embed?listType=user_uploads&list=na-vlastni-triko"
-                    title="Na vlastní triko – nejnovější epizoda"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    loading="lazy"
-                ></iframe>
+            <div class="youtube-embed" id="youtube-player">
+                <div class="youtube-loading">Načítám nejnovější video...</div>
             </div>
-            <a href="https://www.youtube.com/@na-vlastni-triko" class="btn btn-outline" target="_blank" rel="noopener">
+            <a href="https://www.youtube.com/@na-vlastni-triko" class="btn btn-youtube" target="_blank" rel="noopener">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path fill="#fff" d="M9.545 15.568V8.432L15.818 12z"/></svg>
                 Odebírej na YouTube
             </a>
@@ -90,11 +90,19 @@
             <p class="section-subtitle">Vyber si svou oblíbenou platformu</p>
             <div class="platforms-grid">
 
-                <a href="https://open.spotify.com/show/1bJmCDaa3ZJAgfEiuOIaON?si=gyTM6XD9RSWz_go7GQijeg" class="platform-card" target="_blank" rel="noopener">
+                <a href="https://open.spotify.com/show/5lAsTE3V0slVtDf8rxj1qX" class="platform-card" target="_blank" rel="noopener">
                     <div class="platform-icon spotify">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
                     </div>
                     <span class="platform-name">Spotify</span>
+                    <span class="platform-action">Poslouchej →</span>
+                </a>
+
+                <a href="https://podcasts.apple.com/us/podcast/na-vlastn%C3%AD-triko/id1877851652" class="platform-card" target="_blank" rel="noopener">
+                    <div class="platform-icon apple">
+                        <img src="apple-podcasts.svg" alt="Apple Podcasts" width="32" height="32">
+                    </div>
+                    <span class="platform-name">Apple Podcasts</span>
                     <span class="platform-action">Poslouchej →</span>
                 </a>
 
@@ -133,7 +141,7 @@
                 <div class="skool-content">
                     <div class="skool-badge">🚀 Komunita</div>
                     <h2>Posuň se dál na Skool</h2>
-                    <p class="skool-description">Podcast ti dá inspiraci. Skool ti dá <strong>nástroje, které potřebuješ</strong>. Připoj se ke komunitě lidí, kteří to myslí s podnikáním vážně.</p>
+                    <p class="skool-description">Podcast ti dá inspiraci. Skool ti dá <strong>nástroje, které potřebuješ</strong>. Připoj se ke komunitě lidí, kteří to myslí s podnikavostí vážně.</p>
                     <ul class="skool-benefits">
                         <li>
                             <span class="benefit-icon">📚</span>
@@ -164,8 +172,8 @@
                             </div>
                         </li>
                     </ul>
-                    <a href="https://skool.com/na-vlastni-triko" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Připoj se ke komunitě na Skool →</a>
-                    <p class="skool-note">Bezplatný vstup. Žádné závazky.</p>
+                    <a href="https://www.skool.com/na-vlastni-triko" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Připoj se ke komunitě na Skool →</a>
+                    <p class="skool-note">Již od 200 Kč měsíčně. Zruš kdykoliv.</p>
                 </div>
             </div>
         </div>
@@ -177,14 +185,15 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <strong>Na vlastní triko</strong>
-                    <p>Podcast o podnikání pro každého, kdo chce začít.</p>
+                    <p>Podcast o podnikavosti od Vandy Seidelové a Dana Trzila.</p>
                 </div>
                 <div class="footer-links">
-                    <a href="https://open.spotify.com/show/1bJmCDaa3ZJAgfEiuOIaON?si=gyTM6XD9RSWz_go7GQijeg" target="_blank" rel="noopener">Spotify</a>
+                    <a href="https://open.spotify.com/show/5lAsTE3V0slVtDf8rxj1qX" target="_blank" rel="noopener">Spotify</a>
+                    <a href="https://podcasts.apple.com/us/podcast/na-vlastn%C3%AD-triko/id1877851652" target="_blank" rel="noopener">Apple Podcasts</a>
                     <a href="https://www.youtube.com/@na-vlastni-triko" target="_blank" rel="noopener">YouTube</a>
                     <a href="https://www.instagram.com/navlastnitrikopodcast" target="_blank" rel="noopener">Instagram</a>
                     <a href="https://www.tiktok.com/@na_vlastni.triko" target="_blank" rel="noopener">TikTok</a>
-                    <a href="https://skool.com/na-vlastni-triko" target="_blank" rel="noopener">Skool</a>
+                    <a href="https://www.skool.com/na-vlastni-triko" target="_blank" rel="noopener">Skool</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -192,6 +201,55 @@
             </div>
         </div>
     </footer>
+
+    <!-- Dynamic YouTube latest video -->
+    <script>
+    (function() {
+        const CHANNEL_ID = 'UCzycAtIVnSfe0nv2hnc95RA';
+        const RSS_URL = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+        const container = document.getElementById('youtube-player');
+
+        function embedVideo(videoId) {
+            container.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '" title="Na vlastní triko – nejnovější epizoda" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+        }
+
+        function embedChannelPlaylist() {
+            // Uploads playlist = channel ID with UC replaced by UU
+            var uploadsId = 'UU' + CHANNEL_ID.substring(2);
+            container.innerHTML = '<iframe src="https://www.youtube.com/embed/videoseries?list=' + uploadsId + '" title="Na vlastní triko" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+        }
+
+        // Try multiple CORS proxies to fetch RSS and get latest video ID
+        var proxies = [
+            'https://api.allorigins.win/raw?url=' + encodeURIComponent(RSS_URL),
+            'https://corsproxy.io/?' + encodeURIComponent(RSS_URL),
+            'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(RSS_URL)
+        ];
+
+        function tryProxy(index) {
+            if (index >= proxies.length) {
+                // All proxies failed – use uploads playlist embed (always works)
+                embedChannelPlaylist();
+                return;
+            }
+            fetch(proxies[index], { signal: AbortSignal.timeout(5000) })
+                .then(function(res) { return res.text(); })
+                .then(function(xml) {
+                    var match = xml.match(/<yt:videoId>([^<]+)<\/yt:videoId>/);
+                    if (match && match[1]) {
+                        embedVideo(match[1]);
+                    } else {
+                        throw new Error('No video ID');
+                    }
+                })
+                .catch(function() {
+                    tryProxy(index + 1);
+                });
+        }
+
+        tryProxy(0);
+    })();
+    </script>
 
 </body>
 </html>
